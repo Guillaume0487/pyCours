@@ -13,9 +13,9 @@ pos_neg_null()
 def pair():
     user_nbr = int(input("\nEntrez un chiffre >>> "))
     if user_nbr % 2 == 0:
-        print(str(user_nbr) + " Est paire")
+        print(str(user_nbr) + " est paire")
     else:
-        print(str(user_nbr) + " Est impaire")
+        print(str(user_nbr) + " est impaire")
 
 pair()
 #ex03
