@@ -25,6 +25,7 @@ def user_is_major():
         print("Vous etes majeur")
     else:
         print("Vous etes mineur")
+    return (user_age)
 
 user_is_major()
 #ex04
@@ -56,3 +57,12 @@ def operation():
         print("ERROR")
     
 operation()
+#bonus01
+def connected():
+    user_age = user_is_major()
+    if user_age < 18:
+        print("Revennez dans " + str(18 - user_age) + " ans")
+    else:
+        print("Vous etes cennectee")
+
+connected()
