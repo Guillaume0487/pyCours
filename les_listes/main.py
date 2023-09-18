@@ -17,7 +17,7 @@ print(L2)
 #    for i in range(len(lst)):
 #        if lst[i] == str:
 #            lst[i] = str_update
-#    return lst
+#    return (lst)
 
 L3 = ["Voiture", "Moto", "Velo"]
 print(L3)
