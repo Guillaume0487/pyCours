@@ -8,7 +8,7 @@ def pos_neg_null():
     else:
         print(str(user_nbr) + " est NULL")
 
-pos_neg_null()
+#pos_neg_null()
 #ex02
 def paire():
     user_nbr = int(input("\nEntrez un chiffre >>> "))
@@ -17,7 +17,7 @@ def paire():
     else:
         print(str(user_nbr) + " est impaire")
 
-paire()
+#paire()
 #ex03
 def user_is_major():
     user_age = int(input("\nEntrez votre age >>> "))
@@ -27,7 +27,7 @@ def user_is_major():
         print("Vous etes mineur")
     return (user_age)
 
-user_is_major()
+#user_is_major()
 #ex04
 def valid_name(str):
     if str.lower() == "alice" or str.lower() == "bob":
@@ -39,7 +39,7 @@ def wellcome():
     name = str(input("\nEntrez votre prenom >>> "))
     valid_name(name)
 
-wellcome()
+#wellcome()
 #ex05
 def operation():
     nbr1 = int(input("\nEntrez un chiffre >>> "))
@@ -56,7 +56,7 @@ def operation():
     else:
         print("ERROR")
     
-operation()
+#operation()
 #bonus01
 def connected():
     user_age = user_is_major()
@@ -65,4 +65,25 @@ def connected():
     else:
         print("Vous etes cennectee")
 
-connected()
+#connected()
+#bonus02
+def test():
+    age = 2023 - int(input("\nEntrez votre annee de naissance >>> "))
+    username = str(input("\nEntrez votre prenom >>> "))
+    print("Bonjour " + username + " vous avez " + str(age) + " ans")
+    if age > 100:
+        print("vous avez une longevite remarquable.")
+    elif 66 < age:
+        print("Vous etes pensionne.")
+    elif 50 <= age < 67:
+        print("On se rapproche de la pension, courage plus que " + str(67 - age) + " année avant la pension.")
+    elif 18 <= age < 50:
+        print("Tu est un adulte.")
+    elif 15 < age < 18:
+        print("Tu est un ado.")
+    elif 13 <= age <= 15:
+        print("Tu est un pre-ado.")
+    else:
+        print("bonjour... Tu est un enfant.")
+    
+test()
