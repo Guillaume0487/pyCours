@@ -45,14 +45,14 @@ def operation():
     nbr2 = int(input("Entrez un 2eme chiffre >>> "))
     symbol = str(input("Choisissez l'une de ces operation (+, -, *, /) >>> "))
     if symbol == "+":
-        return nbr1 + nbr2
+        print(nbr1 + nbr2)
     elif symbol == "-":
-        return nbr1 - nbr2
+        print(nbr1 - nbr2)
     elif symbol == "*":
-        return nbr1 * nbr2
+        print(nbr1 * nbr2)
     elif symbol == "/":
-        return nbr1 / nbr2
+        print(nbr1 / nbr2)
     else:
-        return "ERROR"
+        print("ERROR")
     
-print(operation())
+operation()
