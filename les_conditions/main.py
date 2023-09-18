@@ -10,14 +10,14 @@ def pos_neg_null():
 
 pos_neg_null()
 #ex02
-def pair():
+def paire():
     user_nbr = int(input("\nEntrez un chiffre >>> "))
     if user_nbr % 2 == 0:
         print(str(user_nbr) + " est paire")
     else:
         print(str(user_nbr) + " est impaire")
 
-pair()
+paire()
 #ex03
 def user_is_major():
     user_age = int(input("\nEntrez votre age >>> "))
