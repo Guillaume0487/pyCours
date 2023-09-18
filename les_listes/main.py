@@ -7,9 +7,9 @@ for e in L1:
     print(e)
 
 #ex02
-L2 = ["Guillaume", 25, 12.5, True]
+L2 = ["Celine", 25, 12.5, True]
 print(L2)
-L2.append("Celine")
+L2.append("Guillaume")
 print(L2)
 
 #ex03
