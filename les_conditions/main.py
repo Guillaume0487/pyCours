@@ -70,7 +70,7 @@ def connected():
 def test():
     age = 2023 - int(input("\nEntrez votre annee de naissance >>> "))
     username = str(input("\nEntrez votre prenom >>> "))
-    print("Bonjour " + username + " vous avez " + str(age) + " ans")
+    print("\nBonjour " + username + " vous avez " + str(age) + " ans")
     if age > 100:
         print("vous avez une longevite remarquable.")
     elif 66 < age:
