@@ -68,3 +68,45 @@ def decremante():
 
 
 # decremante()
+# bonus01
+
+
+def ask_login():
+    user_login = str(input("\nNom d'utilisateur : "))
+    return (user_login)
+
+
+def ask_password():
+    user_password = str(input("Mot de passe : "))
+    return (user_password)
+
+
+def singin():
+    login = "Guillaume"
+    password = "password"
+    user_login = ask_login()
+    user_password = ask_password()
+    while user_login != login and user_password != password:
+        user_login = ask_login()
+        user_password = ask_password()
+    print("Bienvenu " + user_login + " vous êtes connecté")
+
+# singin()
+# bonus02
+
+
+def add_word(lst):
+    ask = str(
+        input("\nVoulez vous ajouter un mot dans la liste ? (y/n) >>> ")).lower()
+    if len(ask) < 0 or len(ask) > 1 or 'n' != ask != 'y':
+        print("Caratere invalide")
+        return (add_word(lst))
+    elif ask == 'y':
+        lst.append(str(input("Entrez le mot a ajouter >>> ")))
+        return (add_word(lst))
+    else:
+        print(lst)
+
+
+# L = []
+# add_word(L)
