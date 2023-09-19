@@ -1,10 +1,10 @@
-d = {
-    "nom" : "Guillaume",
-    "age" : 25,
-    "ville" : "Bruxelles"
-}
+# d = {
+#     "nom" : "Guillaume",
+#     "age" : 25,
+#     "ville" : "Bruxelles"
+# }
 
-print(d.keys())
+# print(d.keys())
 
 # d = {
 #     "orange" : 12,
@@ -38,3 +38,18 @@ print(d.keys())
 
 # classe1.update(classe2)
 # print(classe1)
+
+log = {
+    "login" : "Guillaume",
+    "password" : "password"
+}
+
+user_log = {
+    "login" : "",
+    "password" : ""
+}
+
+while user_log["login"] != log["login"] or user_log["password"] != log["password"]:
+    user_log["login"] = str(input("\nusername : "))
+    user_log["password"] = str(input("mot de passe : "))
+print("Bienvenu " + user_log["login"] + " vous etes connecte")
