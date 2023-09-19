@@ -37,9 +37,10 @@ def capitalize_bis(strg):
     for e in strg:
         lst.append(e)
     for i in range(len(strg)):
-        lst[i] = lst[i].lower()
         if i == 0:
             lst[i] = lst[i].upper()
+        else:
+            lst[i] = lst[i].lower()
     return ("".join(lst))
 
 
