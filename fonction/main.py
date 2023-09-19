@@ -29,18 +29,18 @@
 #         print(str(nbr1) + " " + symbol + " " + str(nbr2) + " = " + str(nbr1 / nbr2))
 #     else:
 #         print("ERROR")
-    
+
 # calcul()
 
 def capitalize_bis(strg):
-    new_str = []
-    new_str.append(strg[0].upper())
-    
-    for i in len(strg):
-        new_str.append(strg[i + 1].lower())
-    print(strg)
-    return ("".join(new_str))
+    lst = []
+    for e in strg:
+        lst.append(e)
+    for i in range(len(strg)):
+        lst[i] = lst[i].lower()
+        if i == 0:
+            lst[i] = lst[i].upper()
+    return ("".join(lst))
 
-test = "test"
-test = capitalize_bis(test)
-print(test)
+
+print(capitalize_bis("gUILLAUME"))
