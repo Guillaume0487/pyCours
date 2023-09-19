@@ -32,16 +32,28 @@
 
 # calcul()
 
-def capitalize_bis(strg):
-    lst = []
-    for e in strg:
-        lst.append(e)
-    for i in range(len(strg)):
-        if i == 0:
-            lst[i] = lst[i].upper()
-        else:
-            lst[i] = lst[i].lower()
-    return ("".join(lst))
+# def capitalize_bis(strg):
+#     lst = []
+#     for e in strg:
+#         lst.append(e)
+#     for i in range(len(strg)):
+#         if i == 0:
+#             lst[i] = lst[i].upper()
+#         else:
+#             lst[i] = lst[i].lower()
+#     return ("".join(lst))
 
 
-print(capitalize_bis("gUILLAUME"))
+# print(capitalize_bis("gUILLAUME"))
+
+def password():
+    user_password = str(input("\nMot de passe >>> "))
+    if user_password != "password":
+        print("Mot de passe incorrect")
+        return (password())
+    print("\n                 @@@@@@@@@@@@@@@@@@@@@@@@")
+    print("                 @       Bienvenue      @")
+    print("                 @@@@@@@@@@@@@@@@@@@@@@@@\n")
+
+
+password()
