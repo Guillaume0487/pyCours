@@ -51,9 +51,9 @@ def hamid_continue():
 
 def incremante():
     i = 8
-    while i < 18:
-        i += 1
+    while i <= 18:
         print(i)
+        i += 1
 
 
 # incremante()
@@ -62,12 +62,12 @@ def incremante():
 
 def decremante():
     i = 18
-    while i > 0:
-        i -= 1
+    while i >= 0:
         print(i)
+        i -= 1
 
 
-# decremante()
+decremante()
 # bonus01
 
 
