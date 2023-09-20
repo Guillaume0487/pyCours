@@ -67,17 +67,21 @@ def unvalide_log(d1, d2):
         return (True)
     return (False)
 
-def change_log(d1):
+def change_username(d1):
     d1["username"] = str(input("\nNouveau nom d'utilisateur >>> "))
-    d1["password"] = str(input("Nouveau nom mot de passe >>> "))
-    print("\nNew username : " + d1["username"] + "\nNew password : " + d1["password"])
+    print("New username : " + d1["username"])
     return (d1)
 
-def unvalide_char(char):
+def change_password(d1):
+    d1["password"] = str(input("\nNouveau mot de passe >>> "))
+    print("New password : " + d1["password"])
+    return (d1)
+
+def valide_char(char):
     if char == 'y' or char == 'n' and len(char) == 1:
-        return (False)
+        return (True)
     print("\nCaractere invalide")
-    return (True)
+    return (False)
     
 def login():
     log = {
@@ -89,13 +93,20 @@ def login():
         "password" : ""
     }
 
+    user_log["username"] = str(input("\nUsername >>> "))
+    user_log["password"] = str(input("Password >>> "))
     while unvalide_log(log, user_log):
+        print("\nNom d'utilisateur ou mot de passe invalide")
         user_log["username"] = str(input("\nUsername >>> "))
         user_log["password"] = str(input("Password >>> "))
-    ask = str(input("\nBonjour " + user_log["username"] + " voulez vous changer votre nom d'utilisateur et votre mot de passe ? (y/n) >>> ")).lower()
-    while unvalide_char(ask):
-        ask = str(input("\nBonjour " + user_log["username"] + " voulez vous changer votre nom d'utilisateur et votre mot de passe ? (y/n) >>> ")).lower()
-    change_log(log) if ask == 'y' else print("Ok aurevoir")
+    ask = str(input("\nBonjour " + user_log["username"] + " voulez vous changer votre nom d'utilisateur ? (y/n) >>> ")).lower()
+    while not valide_char(ask):
+        ask = str(input("\nBonjour " + user_log["username"] + " voulez vous changer votre nom d'utilisateur ? (y/n) >>> ")).lower()
+    if ask == 'y':
+        change_username(log)
+    ask = str(input("\nBonjour " + user_log["username"] + " voulez vous changer votre votre mot de passe ? (y/n) >>> ")).lower()
+    while not valide_char(ask):
+        ask = str(input("\nBonjour " + user_log["username"] + " voulez vous changer votre votre mot de passe ? (y/n) >>> ")).lower()
+    change_password(log) if ask == 'y' else print("Ok aurevoir")
 
-# login()
-#
+login()
