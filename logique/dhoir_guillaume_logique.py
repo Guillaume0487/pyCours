@@ -40,10 +40,13 @@ def factorielle(nbr):
 # ici je divise et arondie au nombre entier le plus bas
 # la taille de la chaine de caractere en parametre par
 # 2 et stock le resultat dans tmp
-# je set i = 1 et j = -1 pour comparer le debut de la liste (i)
-# et la fin (j) si la taille de la liste est
+# je set i = 1 et j = -1 pour comparer le debut de la chaine (i)
+# et la fin (j) si la taille de la chaine est
 # impaire ca n'as pas d'importance, je ne compare
-# pas le milleux de la liste avec lui meme
+# pas le milleux de la chaine avec lui meme.
+# ensuite je joue avec la variable (validation)
+# True si le debut de la chaine == la fin de la chaine
+# sinon False et je casse la boucle et retourne (validation)
 
 
 def palindrome(strg):
@@ -65,7 +68,12 @@ def palindrome(strg):
 # print(palindrome("level"))
 
 # ex05
-
+# je suis partie sur un systeme de tri en (n²) par ce que 
+# c'est celuis que je connais le mieux.
+# en gros je compare liste index i avec liste index j qui est = a i + 1
+# pour ne pas comparer i avec lui meme.
+# si lst[j] est plus petit que lst[i] je stock la valeur de lst[i] dans tmp
+# ensuite lst[i] prend la valeur de lst[j] et lst[j] celle de tmp (enciennement la valeur de lst[i])
 
 def tri(lst):
     for i in range(len(lst)):
@@ -83,9 +91,22 @@ def tri(lst):
 # tri(L)
 
 # ex06
+# celuis la ma un peu casser la tete.
+# je suis partie sur 2 fonction pour un souci de facilitee
+# dans la fonction (prime) si nbr est parfaitement = a 2 je retourne True
+# sinon je set tmp a False et fait une une boucle (for in range()) avec le nombre
+# en parametre, si i est plus grand que 1 alors je rentre dans le if
+# si i doit etre plus grand que 1 c'est pour eviter de faire nbr % 0 par ce qu'on peux pas le faire
+# egalement pour eviter de fair nbr % 1 car ca na pas d'interet de verifier
+# le reste d'une division par 1.
+# apres je verifi si nombre modulo valeur de i est parfaitement = a 0
+# si oui alors tmp passe en false (meme si tmp est deja en false) et casse la boucle
+# sinon tmp passe en true mais ne casse pas la boucle c'est pour ca que je repasse
+# tmp en false dans le (if nbr % i == 0:).
+# si on ne passe jamais dans le if que passe tmp en false, la boucle s'arete au bout
+# de nbr fois
 
-
-def premier(nbr):
+def prime(nbr):
     if nbr == 2:
         return (True)
     tmp = (False)
@@ -101,7 +122,7 @@ def premier(nbr):
 
 def print_prime(borne_inf, borne_sup):
     for i in range(borne_inf, borne_sup):
-        if premier(i):
+        if prime(i):
             print(i)
 
 # print_prime(50, 70)
