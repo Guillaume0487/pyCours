@@ -2,7 +2,7 @@ import json
 import random
 import time
 
-with open("projet/score.json", "r") as file:
+with open("score.json", "r") as file:
     scores = json.load(file)
 
 
@@ -101,7 +101,7 @@ def save(pseudo, counter):
             scores[pseudo] = counter
     else:
         scores[pseudo] = counter
-    with open("projet/score.json", "w+") as file:
+    with open("score.json", "w+") as file:
         json.dump(scores, file)
 
 
