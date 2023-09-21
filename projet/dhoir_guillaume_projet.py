@@ -1,5 +1,30 @@
+import json
 import random
 import time
+
+with open("projet/score.json", "r") as file:
+    scores = json.load(file)
+
+
+def title():
+    for i in range(50):
+        print("\n")
+    print("      :::::::::  :::::::::: ::::    ::: :::::::::  :::    ::: ")
+    time.sleep(0.2)
+    print("     :+:    :+: :+:        :+:+:   :+: :+:    :+: :+:    :+:  ")
+    time.sleep(0.2)
+    print("    +:+    +:+ +:+        :+:+:+  +:+ +:+    +:+ +:+    +:+   ")
+    time.sleep(0.2)
+    print("   +#++:++#+  +#++:++#   +#+ +:+ +#+ +#+    +:+ +#+    +:+    ")
+    time.sleep(0.2)
+    print("  +#+        +#+        +#+  +#+#+# +#+    +#+ +#+    +#+     ")
+    time.sleep(0.2)
+    print(" #+#        #+#        #+#   #+#+# #+#    #+# #+#    #+#      ")
+    time.sleep(0.2)
+    print("###        ########## ###    #### #########   ########        ")
+    for i in range(5):
+        time.sleep(0.2)
+        print("\n")
 
 
 def create_word():
@@ -8,7 +33,7 @@ def create_word():
          "camion",
          "velo",
          "bus",
-         "tramway",
+         "tram",
          "train",
          "avion",
          "bateau",
@@ -59,7 +84,7 @@ def update_indice(word, indice, user_char):
 
 
 def valid_char(user_char):
-    alpha = "abcdefghijklmnopqrstuvwxyz-"
+    alpha = "abcdefghijklmnopqrstuvwxyz"
     if 0 < len(user_char) < 2 and user_char in alpha:
         return (True)
     if len(user_char) > 1:
@@ -69,19 +94,32 @@ def valid_char(user_char):
     return (False)
 
 
-def game(word, indice, counter):
+def save(pseudo, counter):
+    counter *= 10
+    if pseudo in scores:
+        if scores[pseudo] < counter:
+            scores[pseudo] = counter
+    else:
+        scores[pseudo] = counter
+    with open("projet/score.json", "w+") as file:
+        json.dump(scores, file)
+
+
+def game(pseudo, word, indice, counter):
     user_char = ""
     while "".join(indice) != word:
         user_char = ask(word, indice, counter).lower()
         update_indice(word, indice, user_char)
         if not valid_char(user_char):
-            return (game(word, indice, counter))
+            return (game(pseudo, word, indice, counter))
         if user_char not in word:
             counter -= 1
             if counter < 1:
+                save(pseudo, counter)
                 return (False)
             print("La lettre (" + user_char + ") n'est pes dans le mot a trouver")
         if "".join(indice) == word:
+            save(pseudo, counter)
             return (True)
 
 
@@ -115,27 +153,35 @@ def lose():
     print(" #+#    #+#    #+# #+#    #+#          #+#       #+#    #+# #+#    #+# #+#             ")
     time.sleep(0.2)
     print("###     ########   ########           ########## ########   ########  ##########       ")
-    time.sleep(0.2)
+
+
+def all_score(key):
+    space = 20 - len(key)
+    print(key, end="")
+    for i in range(space):
+        print(" ", end="")
+    print(": Score (" + str(scores[key]) + ")")
 
 
 def start():
-    for i in range(50):
-        print("\n")
-    print("Bienvenu dans le jeu du pendu\nLe theme est les vehicules")
-    time.sleep(3)
+    title()
+    time.sleep(1)
+    pseudo = str(input("Entrez un pseudo >>> "))
     for i in range(50):
         print("\n")
     word = create_word()
     indice = create_indice(word)
     counter = 9
-    played = game(word, indice, counter)
+    played = game(pseudo, word, indice, counter)
     if played:
         win()
     else:
         lose()
-    for i in range(44):
+    for i in range(5):
         time.sleep(0.2)
         print("\n")
+    for key in scores:
+        all_score(key)
 
 
 start()
